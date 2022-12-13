@@ -18,9 +18,8 @@
             <h2>Character counter</h2>
         </header>
         <main>
-            <p><em>Input text to get started</em></p>
-            <textarea id="input"></textarea>
-            <button id="count" onclick="getCount()">Count</button>
+            <textarea id="input"onkeyup="getCount(this)"></textarea>
+            <button id="count" >Count</button>
             <div id="output">
 
             </div>

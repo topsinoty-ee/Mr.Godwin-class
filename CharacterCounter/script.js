@@ -1,13 +1,21 @@
 var input = document.getElementById("input");
 var output = document.getElementById("output");
 var trigger = document.getElementById("count");
+var inputValues=[]
 
 
 //Works with a button
 function getCount() {
     var text = input.value;
-    var inputValues = [...text]
+    inputValues = [...text]
 
+    function slowWork(){
+        input.placeholder="Input text to get started";
+        output.innerHTML="";
+    }
 
-    output.innerHTML = inputValues.length
+    if(inputValues.length >= 0){
+        setTimeout(slowWork(), 2000);
+    }
+    output.innerHTML = inputValues.length + " chars"
 }
