@@ -16,15 +16,37 @@
     <body>
         <section id="calculator">
             <div id="display">
-                <input id="input">
+                <input id="input" onkeydown="getInputValue()">
                 <input id="output">
             </div>
             <section id="keys">
                 <div id="numbers">
-
+                    <button>9</button>
+                    <button>8</button>
+                    <button>7</button>
+                    <button>6</button>
+                    <button>5</button>
+                    <button>4</button>
+                    <button>3</button>
+                    <button>2</button>
+                    <button>1</button>
+                    <button>.</button>
+                    <button>0</button>
+                    <button>C</button>
                 </div>
                 <div id="operators">
-
+                    <button>+</button>
+                    <button>-</button>
+                    <button>x</button>
+                    <button>/</button>
+                    <button>
+                        <em>x</em>
+                        <sup>2</sup>
+                    </button>
+                    <button>
+                        &#8730;<em>x</em>
+                    </button>
+                    <button>=</button>
                 </div>
             </section>
         </section>
