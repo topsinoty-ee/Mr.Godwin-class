@@ -1,0 +1,63 @@
+body {
+    font-size: 62.5%;
+}
+
+#calculator {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap:3rem;
+    padding: 2rem 3rem;
+
+    margin: 0;
+    transform: translate(-50%, -50%);
+    width: 60rem;
+    height: 40rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    border: 0.1rem solid #000000;
+    border-radius: 3rem;
+
+}
+#display, #keys{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+#input, #output{
+    width: 50%;
+    height: 2rem;
+    border-radius: 2rem;
+    border: 0.135rem solid black;
+    padding: 0 1rem;
+    display: inline;
+}
+#input{
+    order:0;
+    align-self: stretch;
+    flex-grow: 1;
+}
+#keys{
+    height:25rem
+}
+#numbers, #operators{
+    border: 0.1375rem groove black;
+    border-radius: 0.75rem;
+    height:100%
+
+}
+#numbers{
+    width: 65%;
+}
+#operators{
+    width:35%;
+}
+.button{
+    width: 33%;
+    height: 25%;
+}
