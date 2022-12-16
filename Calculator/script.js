@@ -2,6 +2,8 @@ var input = document.getElementById("input");
 var output = document.getElementById("output");
 var button = document.getElementsByTagName("button");
 
+output.readOnly = true;
+
 var buttonLength = button.length;
 for (let index = 0; index < buttonLength; index++) {
     const selected = button[index]
@@ -9,27 +11,39 @@ for (let index = 0; index < buttonLength; index++) {
 
     if (selected.innerHTML === "C") {
         selected.classList.add("button");
-        selected.style.backgroundColor="orangered";
+        selected.style.backgroundColor = "orangered";
     }
     if (selected.innerHTML === "=") {
         selected.classList.add("button");
         selected.classList.add("fullGrid");
-        selected.style.backgroundColor="green";
+        selected.style.backgroundColor = "green";
     }
 }
 
+const isNumeric = int => /^[0-9^.*+/-]*$/gi.test(int); //Criteria for validation
+const alphaErr = "INPUT ONLY NUMBERS OR '-', '+', '/', '*' " //err message
 
-function calculate() {    
-    output.readOnly = true;
+function calculate() {
     var inValue = input.value;
-    output.value = eval(inValue);
+    if (isNumeric(inValue) === false || !inValue) {
+        alert(alphaErr);
+    } else {
+        while (isNumeric(inValue) === true) {
+            output.value = eval(inValue)
+            break;
+        }
+    }
+    console.log(isNumeric(inValue))
 }
 
-function calculator(){
-    document.addEventListener('click', function(e) {
-        e = e || window.event;
-        var target = e.target
-            text = target.textContent || target.innerText;   
-            console.log(e, target)
-    }, false);
-}
+window.onclick = e => {
+    var target = e.target.innerText
+    if (target === '=') {
+        calculate();
+    } else if (target === 'C') {
+        input.value = "";
+    } else (
+        input.value += target
+    )
+
+} 
