@@ -18,12 +18,18 @@ for (let index = 0; index < buttonLength; index++) {
     }
 }
 
-input.type = "number";
-output.readOnly = true;
 
-function calculate() {
-    var inputValue = input.value;
-    var outputValue = output.value;
+function calculate() {    
+    output.readOnly = true;
+    var inValue = input.value;
+    output.value = eval(inValue);
+}
 
-    eval(inputValue)
+function calculator(){
+    document.addEventListener('click', function(e) {
+        e = e || window.event;
+        var target = e.target
+            text = target.textContent || target.innerText;   
+            console.log(e, target)
+    }, false);
 }
