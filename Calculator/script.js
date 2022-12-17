@@ -7,7 +7,7 @@ var button = document.getElementsByTagName('button');
 output.readOnly = true;
 
 
-//Add coloring and numbering
+//Adding CSS
 var buttonLength = button.length;
 for (let index = 0; index < buttonLength; index++) {
     const selected = button[index]
@@ -22,7 +22,21 @@ for (let index = 0; index < buttonLength; index++) {
         selected.classList.add('fullGrid');
         selected.style.backgroundColor = 'green';
     }
+    if (selected.innerHTML === '9' || selected.innerHTML === '+') {
+        selected.style.borderTopLeftRadius = '0.75rem'
+    }
+    if (selected.innerHTML === '7' || selected.innerHTML === '-') {
+        selected.style.borderTopRightRadius = '0.75rem'
+    }
+    if (selected.innerHTML === '.' || selected.innerHTML === '√x') {
+        selected.style.borderBottomLeftRadius = '0.75rem'
+    }
+    if (selected.innerHTML === 'C' || selected.innerHTML === '=') {
+        selected.style.borderBottomRightRadius = '0.75rem'
+    }
+
 }
+
 
 
 const isNumeric = int => /^[0-9^xsqrt.*+/√()-]*$/gi.test(int);       //Criteria for validation
@@ -46,7 +60,7 @@ function calculate() {
     //the square root function
     const sqrt = (x) => Math.sqrt(x);
 
-    
+
     converter('x', '*');    //This converts 'x' to '*'
     converter('^', '**');   //This converts '^' to '**'
 
