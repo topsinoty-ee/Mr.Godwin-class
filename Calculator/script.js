@@ -44,30 +44,39 @@ function calculate() {
         alert(alphaErr);
     } else {
         while (isNumeric(inValue) === true) {
-            console.log(inValue)
+            // console.log(inValue)
             output.value = eval(inValue)
             break;
         }
     }
-    console.log(isNumeric(inValue))
+    // console.log(isNumeric(inValue))
 }
 
 
 
-window.onclick = e => {
-    var target = e.target.innerHTML
-    console.log(target)
-    if (target === '=') {
-        calculate();
-    } else if (target === 'x^2') {
-        input.value += '^2'
-    } else if (target === '√x') {
-        input.value += 'sqrt()'
-    } else if (target === 'C') {
-        input.value = '';
-        output.value = ''
-    } else (
-        input.value += target
-    )
 
-} 
+// Attach the listener to the div element
+const calculator = document.querySelector('#calculator');
+
+calculator.addEventListener('click', (e) => {
+    const target = e.target.innerHTML;
+    const tagName = e.target.tagName;
+
+    while (tagName === 'BUTTON') {
+        if (target === '=') {
+            calculate();
+        } else if (target === 'x^2') {
+            input.value += '^2'
+        } else if (target === '√x') {
+            input.value += 'sqrt()'
+        } else if (target === 'C') {
+            input.value = '';
+            output.value = ''
+        } else (
+            input.value += target
+        )
+
+        break;
+    }
+    // console.log(target);
+});
