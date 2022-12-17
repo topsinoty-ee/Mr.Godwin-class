@@ -4,6 +4,17 @@ var button = document.getElementsByTagName("button");
 
 output.readOnly = true;
 
+function setCaretPosition(ctrl, pos) {
+    if (ctrl.setSelectionRange) {
+        ctrl.focus();
+        ctrl.setSelectionRange(pos, pos);
+
+    }
+}
+
+// Set the cursor position of the "#test-input" element to the end when the page loads
+
+
 var buttonLength = button.length;
 for (let index = 0; index < buttonLength; index++) {
     const selected = button[index]
@@ -20,11 +31,14 @@ for (let index = 0; index < buttonLength; index++) {
     }
 }
 
-const isNumeric = int => /^[0-9^.*+/-]*$/gi.test(int); //Criteria for validation
+const isNumeric = int => /^[0-9^()√.*+/-]*$/gi.test(int); //Criteria for validation
 const alphaErr = "INPUT ONLY NUMBERS OR '-', '+', '/', '*' " //err message
 
 function calculate() {
     var inValue = input.value;
+    const arr = [...inValue];
+
+
     if (isNumeric(inValue) === false || !inValue) {
         alert(alphaErr);
     } else {
@@ -37,9 +51,15 @@ function calculate() {
 }
 
 window.onclick = e => {
-    var target = e.target.innerText
+    var target = e.target.innerHTML
+    console.log(target)
     if (target === '=') {
         calculate();
+    } else if (target === 'x^2') {
+        input.value += '**2'
+    } else if (target === '√x') {
+        input.value += 'sqrt()'
+        setCaretPosition(input, input.value.length - 1);
     } else if (target === 'C') {
         input.value = "";
     } else (
