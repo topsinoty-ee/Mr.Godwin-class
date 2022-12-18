@@ -77,9 +77,6 @@ function calculate() {
     // console.log(isNumeric(inValue))
 }
 
-
-
-
 // Attach the listener to the calculator
 const calculator = document.querySelector('#calculator');
 
