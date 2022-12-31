@@ -1,5 +1,3 @@
 ### Mr. Godwin's class
 
-## Character counter
-
-Input text and press **Enter** or **Submit** to use
+projects can be accessed through the branchs
